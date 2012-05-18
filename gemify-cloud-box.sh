@@ -39,7 +39,7 @@ mkdir -p /var/log/web
 aptitude -y install apache2 apache2-utils apache2-mpm-worker
 
 # Setup config & restart apache
-curl -s -o /etc/apache2/apache2.conf ./apache2.conf
+curl -s -o /etc/apache2/apache2.conf https://raw.github.com/caius/gemify-cloud-box/master/apache2.conf
 /etc/init.d/apache2 restart
 
 # Install postfix for monit to use
@@ -50,10 +50,10 @@ aptitude -y install monit
 mv /etc/monit/monitrc /etc/monit/monitrc.dpkg-dist
 
 # Setup some monit config
-curl -s -o /etc/monit/monitrc ./monitrc
-curl -s -o /etc/monit/conf.d/disk-space.monitrc ./disk-space.monitrc
-curl -s -o /etc/monit/conf.d/general.monitrc ./general.monitrc
-curl -s -o /etc/monit/conf.d/email-alerts.monitrc ./email-alerts.monitrc
+curl -s -o /etc/monit/monitrc https://raw.github.com/caius/gemify-cloud-box/master/monitrc
+curl -s -o /etc/monit/conf.d/disk-space.monitrc https://raw.github.com/caius/gemify-cloud-box/master/disk-space.monitrc
+curl -s -o /etc/monit/conf.d/general.monitrc https://raw.github.com/caius/gemify-cloud-box/master/general.monitrc
+curl -s -o /etc/monit/conf.d/email-alerts.monitrc https://raw.github.com/caius/gemify-cloud-box/master/email-alerts.monitrc
 
 # Mark monit as being ok to start
 sed -e "s/startup=0/startup=1/" -i /etc/default/monit
