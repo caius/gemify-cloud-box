@@ -1,0 +1,7 @@
+# Monit configuration
+# for more details see http://wiki.brightbox.co.uk/Support/Monit
+set daemon 30
+
+set mailserver localhost
+
+include /etc/monit/conf.d/*.monitrc
